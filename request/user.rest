@@ -1,8 +1,20 @@
 ###
 GET http://localhost:3100/user
-
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdF9uYW1lIjoiZWwgc2FudG8iLCJlbWFpbCI6ImNhc2FzMjRAZ21haWwuY29tIiwidXNlcl9pZCI6IjY0NDA3NDcxZTI5MDhjNjJmMmI3ZTBiNyIsImlhdCI6MTY4MjM0NTkwNCwiZXhwIjoxNjgzMjQ1OTA0fQ.1OvFykFgWovHJvAwaXQy_ZVRql_GOLuOqu8Vr9e-LrQ
 ###
-GET http://localhost:3100/user/1
+GET http://localhost:3100/user/643f3cb279236a7340eb58a5
 
 ###
 POST  http://localhost:3100/user
+Content-Type: application/json
+
+{
+  "first_name": "Juan Carlos",
+  "last_name": "Mamani Rojas",
+  "email": "jcmrcdf@gmail.com",
+  "password": "aA687635312#",
+  "cellphone": "73080372"
+}
+
+###
+DELETE http://localhost:3100/user/64404fcdba874de636f74794

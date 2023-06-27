@@ -1,27 +1,62 @@
 import * as serviceFn from '../services/user.services'
-import { type Response, type Request } from 'express'
+import { type Response } from 'express'
 import { errorHandler } from '../utils/error.handler'
-export const getUser = async (req: Request, res: Response): Promise<void> => {
+import { type RequestExt } from '../types/requestExt'
+export const getUser = async (req: RequestExt, res: Response): Promise<any> => {
   try {
-    const serviceResponse = await serviceFn.getUserServ()
-    res.send(serviceResponse)
+    const { id } = req.params
+    const serviceResponse = await serviceFn.getUserServ(id)
+    if (serviceResponse.message === 'mongo error') {
+      return res.status(409).json(serviceResponse)
+    }
+    if (serviceResponse.message === 'server error') {
+      return res.status(500).json(serviceResponse)
+    }
+    res.status(200).send(serviceResponse)
   } catch (error) {
     errorHandler('error geting user', res, error)
   }
 }
-export const getUsers = async (req: Request, res: Response): Promise<void> => {
+export const getUsers = async (req: RequestExt, res: Response): Promise<any> => {
   try {
     const serviceResponse = await serviceFn.getUsersServ()
-    res.send(serviceResponse)
+    if (serviceResponse.message === 'mongo error') {
+      return res.status(409).json(serviceResponse)
+    }
+    if (serviceResponse.message === 'server error') {
+      return res.status(500).json(serviceResponse)
+    }
+    res.status(200).send(serviceResponse)
   } catch (error) {
     errorHandler('error geting users', res, error)
   }
 }
-export const postUser = async (req: Request, res: Response): Promise<void> => {
+export const postUser = async (req: RequestExt, res: Response): Promise<any> => {
   try {
-    const serviceResponse = await serviceFn.postUserServ()
-    res.send(serviceResponse)
+    const newUser = req.body
+    const serviceResponse = await serviceFn.postUserServ(newUser)
+    if (serviceResponse.message === 'mongo error') {
+      return res.status(409).json(serviceResponse)
+    }
+    console.log(serviceResponse)
+
+    res.status(200).send(serviceResponse)
   } catch (error) {
     errorHandler('error adding user', res, error)
+  }
+}
+export const deleteUser = async (req: RequestExt, res: Response): Promise<any> => {
+  try {
+    const { id } = req.params
+    const serviceResponse = await serviceFn.deleteUserServ(id)
+    if (serviceResponse.message === 'mongo error') {
+      return res.status(409).json(serviceResponse)
+    }
+    if (serviceResponse.message === 'server error') {
+      return res.status(500).json(serviceResponse)
+    }
+    res.status(200).send(serviceResponse)
+  } catch (error) {
+    errorHandler('error geting users', res, error)
   }
 }

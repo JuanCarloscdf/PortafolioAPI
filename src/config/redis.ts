@@ -1,4 +1,5 @@
 import { createClient } from 'redis'
+
 export const connectToRedis = async (): Promise<void> => {
   try {
     const redisClient = createClient({

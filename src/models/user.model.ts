@@ -1,12 +1,12 @@
 import { Schema, model } from 'mongoose'
-import { type User } from '../types/user.types'
+import { type UserInput } from '../types/user.types'
 
-const userSchema = new Schema<User>({
+const userSchema = new Schema<UserInput>({
   first_name: { type: String },
   last_name: { type: String },
-  email: { type: String },
+  email: { type: String, unique: true },
   password: { type: String },
-  cellphone: { type: String }
+  cellphone: { type: String, unique: true }
 }, {
   timestamps: true
 })

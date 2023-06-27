@@ -4,8 +4,9 @@ import { conectToMongo } from './config/mongo'
 import { connectToRedis } from './config/redis'
 import morgan from 'morgan'
 import cors from 'cors'
+import { swaggerDocs } from './config/swagger'
 // import routes
-import { router } from './routes/user.routes'
+import { router } from './routes'
 
 // conenct to databases
 void connectToRedis()
@@ -18,5 +19,12 @@ app.use(cors())
 app.use(morgan('dev'))
 // routes
 app.use(router)
+// 404
 
-app.listen(env.PORT, () => { console.log(`listening on port ${env.PORT}`) })
+// listenner
+const server = app.listen(env.PORT, () => {
+  console.log(`listening on port ${env.PORT}`)
+  swaggerDocs(app)
+})
+
+export { app, server }

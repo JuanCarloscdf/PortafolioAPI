@@ -1,0 +1,50 @@
+###
+GET http://localhost:3100/project/6447e974cb7faab3918a69b2
+
+###
+GET http://localhost:3100/project?userId=64469010fd9f7fd437885f3d
+
+###
+POST  http://localhost:3100/project
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdF9uYW1lIjoiSnVhbiBDYXJsb3MiLCJlbWFpbCI6ImpjbXJjZGZAZ21haWwuY29tIiwidXNlcl9pZCI6IjY0NTkwMGM4NmJmOTc1M2NmY2Q3YTEzYSIsImlhdCI6MTY4MzU1NDUxMywiZXhwIjoxNjg0NDU0NTEzfQ.WLAiXi09ViDmwSxySlQ3MB6brkuBEjrSMuTzyYvQZDA
+
+{
+    "userId": "645900c86bf9753cfcd7a13a",
+    "gitLink" : "https://github.com/JuanCarloscdf/miweb",
+    "cards":[
+        {
+            "title": "1ra carateristica",
+            "description": "Lorem front y back para una tienda online, realziada con react, express, redisfront y back para una tienda online, realziada con react, express, redisfront y back para una tienda online, realziada con react, express, redisfront y back para una tienda online, realziada con react, express, redis",
+            "img": "https://cdn.pixabay.com/photo/2017/08/30/12/45/girl-2696947_1280.jpg"
+        },
+        {
+            "title": "2da carateristica",
+            "description": "Lorem front y back para una tienda online, realziada con react, express, redisfront y back para una tienda online, realziada con react, express, redisfront y back para una tienda online, realziada con react, express, redisfront y back para una tienda online, realziada con react, express, redis",
+            "img": "https://cdn.pixabay.com/photo/2017/08/30/12/45/girl-2696947_1280.jpg"
+        }
+    ]
+}
+###
+PUT  http://localhost:3100/project/6447e974cb7faab3918a69b2
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdF9uYW1lIjoiZWwgc2FudG8iLCJlbWFpbCI6ImNhc2FzMjRAZ21haWwuY29tIiwidXNlcl9pZCI6IjY0NDA3NDcxZTI5MDhjNjJmMmI3ZTBiNyIsImlhdCI6MTY4MjE5MzgzMywiZXhwIjoxNjgyMjgwMjMzfQ.DdWnR1QXhhbJ6BA_5ixnngXQ12YX64mJ5VN_kvnJJOE
+
+{
+    "userId": "645900c86bf9753cfcd7a13a",
+    "gitLink" : "https://github.com/JuanCarloscdf/miweb",
+    "cards":[
+        {
+            "title": "1ra carateristica",
+            "description": "Lorem front y back para una tienda online, realziada con react, express, redisfront y back para una tienda online, realziada con react, express, redisfront y back para una tienda online, realziada con react, express, redisfront y back para una tienda online, realziada con react, express, redis",
+            "img": "https://cdn.pixabay.com/photo/2017/08/30/12/45/girl-2696947_1280.jpg"
+        },
+        {
+            "title": "2da carateristica",
+            "description": "Lorem front y back para una tienda online, realziada con react, express, redisfront y back para una tienda online, realziada con react, express, redisfront y back para una tienda online, realziada con react, express, redisfront y back para una tienda online, realziada con react, express, redis",
+            "img": "https://cdn.pixabay.com/photo/2017/08/30/12/45/girl-2696947_1280.jpg"
+        }
+    ]
+}
+###
+DELETE  http://localhost:3100/project/644726eb99d66ca61da9bce2

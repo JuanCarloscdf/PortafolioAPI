@@ -1,9 +1,11 @@
 import { env } from '../../config.env'
 import mongoose from 'mongoose'
 
+const URI: string = env.NODE_MODE === 'test' ? env.URI_TEST_MONGO : env.URI_MONGO
+console.log('env.NODE :>> ', URI)
+
 export const conectToMongo = async (): Promise<void> => {
   try {
-    const URI = env.URI_MONGO
     const options = {
       authSource: 'admin'
     }
